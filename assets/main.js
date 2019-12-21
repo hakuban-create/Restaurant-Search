@@ -37,21 +37,47 @@ function performSearch(){
     searchArea=$("#searcharea").val();
     zipCode=$("#zipcode").val();
     var keyWords=keyWordsList();
+
+//Searching around the current location
      if(searchArea=="Current Location"){
          getLocation();
          var interval1=setInterval(function(){
             if(lon!="undefined" && lat!="undefined"){
                 clearInterval(interval1);
-                console.log("lat: "+lat);
-                console.log("lon: "+lon);
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "https://us-restaurant-menus.p.rapidapi.com/restaurants/search/geo?lon="+lon+"&&lat="+lat+"&distance="+distance,
+                    "method": "GET",
+                    "headers": {
+                      "X-RapidAPI-Host": "us-restaurant-menus.p.rapidapi.com",
+                      "X-RapidAPI-Key": "89f48f102dmsha286536059ab923p14d588jsn048cd5bbda16"
+                    }
+                  }
+                  
+                  $.ajax(settings).done(function (response) {
+                    console.log(response);
+                  });
             }
          },1000);
+//Searching by the zipcode
      }else{
-         //searchByZipCode
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/"+zipCode,
+            "method": "GET",
+            "headers": {
+              "X-RapidAPI-Host": "us-restaurant-menus.p.rapidapi.com",
+              "X-RapidAPI-Key": "89f48f102dmsha286536059ab923p14d588jsn048cd5bbda16"
+            }
+          }
+          
+          $.ajax(settings).done(function (response) {
+            console.log(response);
+          });
      }
 
-    // var queryUrlByCurrentLocation=
-    // var queryUrlByZip=
 
 }
 
@@ -84,3 +110,5 @@ $("#searcharea").on("change",function(){
     $("#zipcode_section").show();
     }
 });
+
+
