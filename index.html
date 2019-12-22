@@ -4,50 +4,54 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
+    <link rel="stylesheet" href="assets/style.css">
+  </head>
 <body>
     <div class="container">
         <form class="needs-validation" novalidate>
-                <div class="form-row">
-                        <div class="col-md-6 mb-3">
-                                <label for="validationTooltip02">Keywords</label>
-                                <input type="text" class="form-control" id="keyword" placeholder="example: (asian, breakfast, steak.. etc)">
-                                <div class="valid-tooltip">
-                                  Looks good!
-                                </div>
-                              </div>
+            <div class="form-row">
+                <div class="col-md-3">
+                    <label for="validationTooltip02">Search Area</label>
+                    <select class="custom-select" id="searcharea" required>
+                        <option selected value="Current Location">Current Location</option>
+                        <option id="zipcode_option">Zip Code</option>
+                      </select>
                 </div>
+                <div class="col-md-3" id="zipcode_section">
+                    <label for="validationTooltip02">Zip Code</label>
+                    <input class="form-control" id="zipcode" placeholder="Enter the zip code">
+                </div>
+              </div>
+              <br>
                 <div class="form-row">
                     <div class="col-md-3 mb-3">
-                        <label for="validationTooltip04">Price Range</label>
-                        <select class="custom-select" id="pricerange" required>
-                          <option selected disabled value="">Choose</option>
-                          <option>$</option>
-                          <option>$$</option>
-                          <option>$$$</option>
-                        </select>
+                      <label for="validationTooltip02">Type</label>
+                      <select class="custom-select" id="type" required>
+                        <option selected value="All">All</option>
+                        <option>American</option>
+                        <option>Burgers</option>
+                        <option>Chinese</option>
+                        <option>Italian</option>
+                        <option>Japanese</option>
+                        <option>Mexican</option>
+                        <option>Pasta</option>
+                        <option>Pizza</option>
+                        <option>Sandwiches</option>
+                        <option>Seafood</option>
+                        <option>Steak</option>
+                        <option>Sushi</option>
+                      </select>
                       </div>
-                        <div class="col-md-3 mb-3">
-                                <label for="validationTooltip01">Distance</label>
-                                <input type="text" class="form-control" id="distance" placeholder="Distance in mile">
-                              </div>
+                   <div class="col-md-3 mb-3">
+                        <label for="validationTooltip01">Distance (in miles)</label>
+                        <input type="text" class="form-control" id="distance" value="1" placeholder="1">
+                   </div>
                 </div>
-                <div class="form-row">
-                    <div class="col-md-3">
-                        <label for="validationTooltip02">Search Area</label>
-                        <select class="custom-select" id="searcharea" required>
-                            <option selected disabled value="">Choose</option>
-                            <option>Current Location</option>
-                            <option id="zipcode_option">Zip Code</option>
-                          </select>
-                    </div>
-                    <div class="col-md-3" id="zipcode_section">
-                        <label for="validationTooltip02">Zip Code</label>
-                        <input class="form-control" id="zipcode" placeholder="Enter the zip code">
-                    </div>
-                  </div>
-                  <br>
-                <button class="btn btn-primary" type="search" id="search-btn">Search</button>
+                <br>
+                  <button class="btn btn-primary" type="search" id="search-btn">Search</button>
+                <br>
+                <br>
+                <div id="result_container"></div>
               </form>
             </div>
         
@@ -59,5 +63,6 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
         <script src="assets/main.js"></script>
+        <script src="assets/functions.js"></script>
 </body>
 </html>
