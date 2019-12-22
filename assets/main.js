@@ -35,6 +35,8 @@ $("#search-btn").on("click",function(){
 $("#searcharea").on("change",function(){
     if($("#searcharea").val()=="Zip Code"){
     $("#zipcode_section").show();
+    }else{
+        $("#zipcode_section").hide();
     }
 });
 
