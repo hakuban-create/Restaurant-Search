@@ -1,11 +1,9 @@
-$("#zipcode_section").hide();
 /* * * * * * * elements * * * * * * */
-
+$("#zipcode_section").hide();
 
 
 /* * * * * * * Variables * * * * * * */
 var type,distance,searchArea,zipCode;
-
 
 
 
@@ -17,8 +15,6 @@ function initSearchVars(){
     zipCode=$("#zipcode").val();
     type=$("#type").val();
 }
-
-
 
 
 
