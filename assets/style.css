@@ -5,3 +5,38 @@
     color: #315375;
     line-height: 2;
 }
+
+.googleImg{
+    margin-bottom: 10px !important;
+    height: 150px;
+}
+.direction_btn{
+    padding: 5px 40px;
+}
+#map{
+    height:100%;
+}
+
+.modal-content{
+    height: 600px;
+}
+
+#status{
+    height: 70px;
+    background-color: gainsboro;
+    padding: 10px 200px;
+}
+span{
+    padding-left: 40px;
+    font-size: 22px;
+    color: #069633;
+}
+
+#car_img{
+    height: 45px;
+    margin-bottom: 10px;
+}
+
+h4{
+    color: #0f78e6;
+}

@@ -41,3 +41,14 @@ $("#searcharea").on("change",function(){
 });
 
 
+$("#result_container").on("click",".direction_btn",function(){
+    event.preventDefault();
+    var indexOfRestaurant=$(this).attr("id");
+    console.log("clicked: "+indexOfRestaurant);
+    displayDistance(indexOfRestaurant);
+
+});
+
+
+
+  
