@@ -3,7 +3,7 @@ $("#zipcode_section").hide();
 
 
 /* * * * * * * Variables * * * * * * */
-var type,distance,searchArea,zipCode;
+var type,name,distance,searchArea,zipCode;
 
 
 
@@ -14,6 +14,8 @@ function initSearchVars(){
     searchArea=$("#searcharea").val();
     zipCode=$("#zipcode").val();
     type=$("#type").val();
+    name=$("#place_name").val();
+
 }
 
 
@@ -24,7 +26,7 @@ $("#search-btn").on("click",function(){
     event.preventDefault();
     console.log("clicked");
     initSearchVars();
-    performSearch("result_container",searchArea,zipCode,distance,type);
+    performSearch("result_container",searchArea,zipCode,distance,type,name);
 
 });
 

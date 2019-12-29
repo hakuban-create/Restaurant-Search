@@ -8,10 +8,10 @@
 
 .googleImg{
     margin-bottom: 10px !important;
-    height: 150px;
+    height: 100px;
 }
 .direction_btn{
-    padding: 5px 40px;
+    margin-top: 15px;
 }
 #map{
     height:100%;
@@ -39,4 +39,8 @@ span{
 
 h4{
     color: #0f78e6;
+}
+
+.col2{
+    margin-top: 10px;
 }

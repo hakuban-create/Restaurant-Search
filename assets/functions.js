@@ -7,7 +7,7 @@ var result="undefined";
 
 /* * * * * * * Functions * * * * * * */
 
-function performSearch(htmlDivId,searchArea,zipCode,distance,type){
+function performSearch(htmlDivId,searchArea,zipCode,distance,type,name){
     var queryUrl;
     
     /*Searching around the user location*/
@@ -20,7 +20,7 @@ function performSearch(htmlDivId,searchArea,zipCode,distance,type){
             clearInterval(interval1);
             queryUrl="https://us-restaurant-menus.p.rapidapi.com/restaurants/search/geo?lon="+lon+"&&lat="+lat+"&distance="+distance;
             $.ajax(getAjaxSetting(queryUrl)).done(function (response) {
-               result=filterResponse(response,type);
+               result=filterResponse(response,type,name);
                displayResult(htmlDivId,result);
             });
         }
@@ -30,7 +30,7 @@ function performSearch(htmlDivId,searchArea,zipCode,distance,type){
     }else{
         queryUrl="https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/"+zipCode;
         $.ajax(getAjaxSetting(queryUrl)).done(function (response) {
-            result=filterResponse(response,type);
+            result=filterResponse(response,type,name);
             displayResult(htmlDivId,result);
         });
     }
@@ -65,22 +65,45 @@ function getUserLocation(){
  }
 
 
- function filterResponse(response,type){
+ function filterResponse(response,type,name){
     console.log(response);
+    console.log("name: "+name);
+    console.log("type: "+type);
     var arr=response.result.data;
     var newArr=[];
-    if(type!="All"){
-     for(i in arr){
-         if(arr[i].cuisines.includes(type)){ 
-           newArr.push(arr[i]);
-         }
-
-      }
-      return newArr;
-    }
+    if(type=="All" && name=="All"){
         return arr;
-  
-}
+    }else if(type!="All" && name!="All"){
+        name=name.toLowerCase();
+        for(i in arr){
+            var tempType=arr[i].cuisines;
+            var tempName=arr[i].restaurant_name.toLowerCase();
+            if(tempType.includes(type) && tempName.includes(name)){ 
+            newArr.push(arr[i]);
+         }
+      }
+      return newArr; 
+    }else if(type!="All"){
+        for(i in arr){
+            if(arr[i].cuisines.includes(type)){ 
+            newArr.push(arr[i]);
+             }
+        }
+        return newArr;
+    }else{
+        name=name.toLowerCase();
+        for(i in arr){
+            var tempName=arr[i].restaurant_name.toLowerCase();
+            if(tempName.includes(name)){ 
+            newArr.push(arr[i]);
+            }
+         }
+         return newArr;
+    }
+
+} //filterResponse function end
+   
+
 function displayResult(htmlDivId,result){
     var domEl=document.getElementById(htmlDivId);
     var el=$(domEl);
@@ -91,8 +114,11 @@ function displayResult(htmlDivId,result){
     }else{
         for(i in result){
             var row=$("<div>").attr("class","row container_div");
-            var col1=$("<div>").attr("class","col-md-7");
-            var col2=$("<div>").attr("class","col-md-3");
+            var col1=$("<div>").attr("class","col-md-6 col1");
+            var col2=$("<div>").attr("class","col-md-6 col2");
+            var col21=$("<div>").attr("class","col-md-4");
+            var col22=$("<div>").attr("class","col-md-4");
+            var col23=$("<div>").attr("class","col-md-4");
 
             var div1= $("<h4>").attr("class","result").text(result[i].restaurant_name);
             var div2= $("<div>").attr("class","result").text("Address: "+result[i].address.formatted);
@@ -100,7 +126,7 @@ function displayResult(htmlDivId,result){
             var div4= $("<div>").attr("class","result").text("Phone: "+result[i].restaurant_phone);
             var div5= $("<div>").attr("class","result").text("Price Range: "+result[i].price_range);
             var div6= $("<div>").attr("class","result").text("Hours: "+result[i].hours);
-            var img=$("<img>").attr("src","assets/images/GoogleMap.jpeg").attr("class","googleImg shadow p-3 mb-5 bg-white rounded");
+            var img=$("<img>").attr("src","assets/images/GoogleMap.jpeg").attr("class","googleImg shadow mb-5 bg-white rounded");
             var btn1=$("<button>")
                 .attr("type","button")
                 .attr("id",i)
@@ -110,8 +136,9 @@ function displayResult(htmlDivId,result){
                 .text("Get Direction");
 
             col1.append(div1,div2,div3,div4,div5,div5,div6);
-            col2.append(img,btn1);
+            col21.append(img,btn1);
             row.append(col1,col2);
+            col2.append(col21,col22,col23);
             el.append(row);
         }  
     }  
@@ -172,5 +199,4 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
 
 
 
-
-
+        
