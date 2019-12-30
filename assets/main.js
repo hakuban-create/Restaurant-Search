@@ -1,5 +1,6 @@
 /* * * * * * * elements * * * * * * */
 $("#zipcode_section").hide();
+$("#custom_email").hide();
 
 
 /* * * * * * * Variables * * * * * * */
@@ -41,11 +42,33 @@ $("#searcharea").on("change",function(){
 
 $("#result_container").on("click",".direction_btn",function(){
     event.preventDefault();
-    var indexOfRestaurant=$(this).attr("id");
+    var indexOfRestaurant=$(this).parent().parent().parent().attr("id");
     console.log("clicked: "+indexOfRestaurant);
     displayDistance(indexOfRestaurant);
 
 });
+
+
+$("#result_container").on("click",".share_btn",function(){
+    event.preventDefault();
+    var indexOfRestaurant=$(this).parent().parent().parent().attr("id");
+    console.log("clicked: "+indexOfRestaurant);
+    autofillEmail(indexOfRestaurant);
+
+});
+
+
+$("#email_recievers").on("change",function(){
+    if($("#email_recievers").val()=="Custom Email Address"){
+        $("#custom_email").show();
+        }else{
+            $("#custom_email").hide();
+        }
+});
+
+$("#email_send_btn").on("click",function(){
+    
+})
 
 
 

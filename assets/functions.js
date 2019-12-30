@@ -113,30 +113,49 @@ function displayResult(htmlDivId,result){
         el.text("No matching result");
     }else{
         for(i in result){
-            var row=$("<div>").attr("class","row container_div");
-            var col1=$("<div>").attr("class","col-md-6 col1");
-            var col2=$("<div>").attr("class","col-md-6 col2");
-            var col21=$("<div>").attr("class","col-md-4");
-            var col22=$("<div>").attr("class","col-md-4");
-            var col23=$("<div>").attr("class","col-md-4");
+            var row=$("<div>").attr("class","row container_div").attr("id",i),
+                col1=$("<div>").attr("class","col-md-7 col1"),
+                col2=$("<div>").attr("class","row col-md-5"),
+                col21=$("<div>").attr("class","col-md-3"),
+                col22=$("<div>").attr("class","col-md-3"),
+                col23=$("<div>").attr("class","col-md-3");
 
-            var div1= $("<h4>").attr("class","result").text(result[i].restaurant_name);
-            var div2= $("<div>").attr("class","result").text("Address: "+result[i].address.formatted);
-            var div3= $("<div>").attr("class","result").text("Cuisines: "+result[i].cuisines.toString());
-            var div4= $("<div>").attr("class","result").text("Phone: "+result[i].restaurant_phone);
-            var div5= $("<div>").attr("class","result").text("Price Range: "+result[i].price_range);
-            var div6= $("<div>").attr("class","result").text("Hours: "+result[i].hours);
-            var img=$("<img>").attr("src","assets/images/GoogleMap.jpeg").attr("class","googleImg shadow mb-5 bg-white rounded");
+            var div1= $("<h4>").attr("class","result").text(result[i].restaurant_name),
+                div2= $("<div>").attr("class","result").text("Address: "+result[i].address.formatted),
+                div3= $("<div>").attr("class","result").text("Cuisines: "+result[i].cuisines.toString()),
+                div4= $("<div>").attr("class","result").text("Phone: "+result[i].restaurant_phone),
+                div5= $("<div>").attr("class","result").text("Price Range: "+result[i].price_range),
+                div6= $("<div>").attr("class","result").text("Hours: "+result[i].hours);
+
+            var img0=$("<img>").attr("src","assets/images/reviews.png").attr("class","reviewsImg shadow mb-5 bg-white rounded");
+            var btn0=$("<button>")
+                .attr("type","button")
+                .attr("class","reviews_btn btn btn-primary")
+                .attr("data-toggle","modal")
+                .attr("data-target","#modal_0")
+                .text("Reviews");
+
+            var img1=$("<img>").attr("src","assets/images/GoogleMap.jpeg").attr("class","googleImg shadow mb-5 bg-white rounded");
             var btn1=$("<button>")
                 .attr("type","button")
-                .attr("id",i)
                 .attr("class","direction_btn btn btn-primary")
                 .attr("data-toggle","modal")
-                .attr("data-target",".bd-example-modal-lg")
-                .text("Get Direction");
+                .attr("data-target","#modal_1")
+                .text("Direction");
+
+            var img2=$("<img>").attr("src","assets/images/share.png").attr("class","shareImg shadow mb-5 bg-white rounded");
+            var btn2=$("<button>")
+                .attr("type","button")
+                .attr("class","share_btn btn btn-primary")
+                .attr("data-toggle","modal")
+                .attr("data-target","#modal_2")
+                .text("Share");
+
 
             col1.append(div1,div2,div3,div4,div5,div5,div6);
-            col21.append(img,btn1);
+            col21.append(img0,btn0);
+            col22.append(img1,btn1);
+            col23.append(img2,btn2);
             row.append(col1,col2);
             col2.append(col21,col22,col23);
             el.append(row);
@@ -193,6 +212,17 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
     });
     }
     
+
+    function autofillEmail(indexOfRestaurant){
+        var selected=result[indexOfRestaurant],
+            name=selected.restaurant_name,
+            address=selected.address.formatted,
+            cuisine=selected.cuisines.toString(),
+            phone=selected.restaurant_phone;
+        $("#message").val("Hi,\nThe restaurant that I would like you share with you is:"+
+                            "\n\n"+name+"\n"+"(Cuisines: "+cuisine+")\n"+address+"\n"+phone+"\n\n"+
+                                "Optional: You may want to share more details about your experience as well as the dishes that you would like to recommend.");
+    }
 
 
 
