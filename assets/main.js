@@ -67,7 +67,19 @@ $("#email_recievers").on("change",function(){
 });
 
 $("#email_send_btn").on("click",function(){
-    
+   var recieverType=$("#email_recievers").val();
+   var recieverEmail="";
+    if(recieverType=="Custom Email Address"){
+        recieverEmail=$("#custom_email").val();
+    }else{
+        //WIP community email list as recievers
+    }
+    var subject=$("#subject").val(),
+        message=$("#message").val();
+        
+    sendEmail(recieverEmail,subject,message);
+
+
 })
 
 

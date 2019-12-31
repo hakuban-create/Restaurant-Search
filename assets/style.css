@@ -49,10 +49,15 @@ h4{
     margin-top: 10px;
 }
 
-#custom_email{
+#custom_email_div{
     margin-top: 31px;
 }
 
 .col-md-3{
     margin-right:30px;
+}
+#sent{
+    text-align: center;
+    color: green;
+    margin-top: 20%;
 }

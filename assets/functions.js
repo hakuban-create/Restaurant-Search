@@ -225,6 +225,20 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
     }
 
 
+    function sendEmail(recieverEmail, subject, message){
+        Email.send({
+            SecureToken : "c9c33f53-4b8f-4442-b581-b569cffe90a3 ",
+            To : recieverEmail,
+            From : "greatfoodandplaces@gmail.com",
+            Subject : subject,
+            Body : message
+        }).then(
+          message => console.log("message sent")
+        );
+        
+    }
+
+
 
 
 
