@@ -54,6 +54,7 @@
                 </div>
                 <br>
                   <button class="btn btn-primary" type="search" id="search-btn">Search</button>
+                  <button type="button" class="btn btn-primary" type="search" id="subscribe-btn" data-toggle="modal" data-target="#modal_4">Subscribe</button>
                 <br>
                 <br>
                 <div id="result_container"></div>
@@ -84,7 +85,7 @@
             </div>
           </div>
         </div>
-           
+       
                             <!--  share modal -->
         <div id="modal_2" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
@@ -125,6 +126,81 @@
                     </div>
                   </div>
                 </div>
+
+                 <!-- subscribe modal-->
+        <div id="modal_4" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <section class="section-form">
+                    <div class="row">
+                        <h2>Get an update on your community favorites!</h2>
+                    </div>
+                    <div class="row">
+                        <form method="post" action="#" class="contact-form">
+                            <div class="row">
+                            <div class="col span-1-of-3">
+                                <label for="name">Name</label>
+                            </div>
+                            <div class="col span-2-of-3">
+                            <input type="text" name="name" id="name" placeholder="Your name" required>
+                            </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col span-1-of-3">
+                                        <label for="email">Email</label>
+                                    </div>
+                                    <div class="col span-2-of-3">
+                                    <input type="email" name="email" id="email" placeholder="Your email" required>
+                                </div>
+                            </div> 
+                            <div class="row">
+                                    <div class="col span-1-of-3">
+                                        <label for="find-us">What types of food would you like to eat?</label>
+                                    </div>
+                                    <div class="col span-2-of-3">
+                                        <input type="radio" class="rad" name="Item1" value="American" />American
+                                        <br />
+                                        <input type="radio" class="rad" name="Item2" value="Burgers" />Burgers
+                                        <br />
+                                        <input type="radio" class="rad" name="Item3" value="Chinese" />Chinese
+                                        <br />
+                                        <input type="radio" class="rad" name="Item4" value="Italian" />Italian
+                                        <br />
+                                        <input type="radio" class="rad" name="Item4" value="Japanese" />Japanese
+                                        <br />
+                                        <input type="radio" class="rad" name="Item4" value="Mexican" />Mexican
+                                        <br />
+                                        <input type="radio" class="rad" name="Item4" value="Pasta" />Pasta
+                                        <br />
+                                        <input type="radio" class="rad" name="Item4" value="Pizza" />Pizza
+                                        <br />
+                                        <input type="radio" class="rad" name="Item4" value="Sandwiches" />Sandwiches
+                                        <br />
+                                        <input type="radio" class="rad" name="Item4" value="Seafood" />Seafood
+                                        <br />
+                                        <input type="radio" class="rad" name="Item4" value="Steak" />Steak
+                                        <br />
+                                        <input type="radio" class="rad" name="Item4" value="Sushi" />Sushi
+                                        <br />
+                                </div>
+                            </div> 
+            
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>&nbsp;</label>
+                       </div>
+                         <div class="col span-2-of-3">
+                        <button type="submit">Submit</button>
+                    </div>
+                </div>      
+                        </form>
+                    </div>
+                    
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <script src="https://smtpjs.com/v3/smtp.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
