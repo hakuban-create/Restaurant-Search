@@ -105,6 +105,8 @@ function getUserLocation(){
    
 
 function displayResult(htmlDivId,result){
+    $("#loading").hide();
+    $("#result_container").show();
     var domEl=document.getElementById(htmlDivId);
     var el=$(domEl);
     el.empty();
@@ -141,7 +143,7 @@ function displayResult(htmlDivId,result){
                 .attr("class","direction_btn btn btn-primary")
                 .attr("data-toggle","modal")
                 .attr("data-target","#modal_1")
-                .text("Direction");
+                .text("Directions");
 
             var img2=$("<img>").attr("src","assets/images/share.png").attr("class","shareImg shadow mb-5 bg-white rounded");
             var btn2=$("<button>")
@@ -212,20 +214,21 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
     });
     }
     
-
+    var nameToShare;
     function autofillEmail(indexOfRestaurant){
         var selected=result[indexOfRestaurant],
-            name=selected.restaurant_name,
             address=selected.address.formatted,
             cuisine=selected.cuisines.toString(),
             phone=selected.restaurant_phone;
+            nameToShare=selected.restaurant_name
         $("#message").val("Hi,\nThe restaurant that I would like you share with you is:"+
-                            "\n\n"+name+"\n"+"(Cuisines: "+cuisine+")\n"+address+"\n"+phone+"\n\n"+
-                                "Optional: You may want to share more details about your experience as well as the dishes that you would like to recommend.");
+                            "\n\n"+nameToShare+"\n"+"(Cuisines: "+cuisine+")\n"+address+"\n"+phone+"\n\n"+
+                                "* * * Optional: You may want to share more details about your experience as well as the dishes that you would like to recommend. * * *");
     }
 
 
     function sendEmail(recieverEmail, subject, message){
+        message=message.replace(nameToShare,"<span style=\"font-weight: bold\;font-size: 16px;\">"+nameToShare+"</span>");
         Email.send({
             SecureToken : "c9c33f53-4b8f-4442-b581-b569cffe90a3 ",
             To : recieverEmail,

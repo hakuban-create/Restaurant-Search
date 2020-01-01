@@ -1,6 +1,7 @@
 /* * * * * * * elements * * * * * * */
 $("#zipcode_section").hide();
 $("#custom_email").hide();
+$("#loading").hide();
 
 
 /* * * * * * * Variables * * * * * * */
@@ -24,10 +25,13 @@ function initSearchVars(){
 /* * * * * * * Listeners * * * * * * */
 
 $("#search-btn").on("click",function(){
+    $("#result_container").hide();
+    $("#loading").show();
     event.preventDefault();
-    console.log("clicked");
-    initSearchVars();
-    performSearch("result_container",searchArea,zipCode,distance,type,name);
+    setTimeout(function(){
+        initSearchVars();
+        performSearch("result_container",searchArea,zipCode,distance,type,name);
+    }, 300);
 
 });
 
@@ -76,7 +80,8 @@ $("#email_send_btn").on("click",function(){
     }
     var subject=$("#subject").val(),
         message=$("#message").val();
-        
+        message= message.split("\n").join("</br>");
+
     sendEmail(recieverEmail,subject,message);
 
 

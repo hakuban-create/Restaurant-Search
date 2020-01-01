@@ -1,3 +1,4 @@
+
 .container_div{
     margin: 10px;
     border: 1px solid gray;
@@ -60,4 +61,18 @@ h4{
     text-align: center;
     color: green;
     margin-top: 20%;
+}
+/* label{
+    font-weight: bold;
+} */
+
+#loading{
+    margin: 5% 35%;
+}
+
+
+
+.hero-text-box{
+    color: white;
+    margin: 13% -2%;
 }
