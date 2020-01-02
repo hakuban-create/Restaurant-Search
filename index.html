@@ -1,59 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/style.css">
-    <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="vendors/css/grid.css">
-    <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
-    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
-    <link rel="stylesheet" type="text/css" href="resources/css/queries.css">
-    <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
-  </head>
-<body>
-    <header>
-        <nav>
-            <div class="row">
-                <img src="resources/img/logo-white.png" alt="omnifood logo" class="logo">
-                <ul class="main-nav">
-                   <li><a href="#">Food delivery</a></li>
-                   <li><a href="#">How it works</a></li>
-                   <li><a href="#">Our cities</a></li>
-                   <li><a href="#">Sign up</a></li>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">=
+        <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="vendors/css/grid.css">
+        <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/queries.css">
+        <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="assets/style.css">
+        <title>Omnifood</title>
 
-                </ul>
-                
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="row">
+                    <img src="resources/img/logo-white.png" alt="omnifood logo" class="logo">
+                    <ul class="main-nav">
+                       <li><a href="#">Food delivery</a></li>
+                       <li><a href="#">How it works</a></li>
+                       <li><a href="#">Our cities</a></li>
+                       <li><a href="#">Sign up</a></li>
+
+                    </ul>
+                    
+                </div>
+            </nav>
+            <div class="hero-text-box">
+                <h1>Goodbye junk food.<br> Hello super healthy meals.</h1>
+                <a class="btn btn-full" href="#">I'am hungry</a>
+                <a class="btn btn-ghost" href="#">Show me more</a>
             </div>
-        </nav>
-        <div class="hero-text-box">
-            <h3>Search the greatest restaurants<br>around you</h3>
 
-        <form class="needs-validation" novalidate>
+        </header>
+        <div id="search_box">
+            <h4 id="search_box_label">Search restaurants</h4>
             <div class="form-row">
                 <div class="col-md-3">
                     <label for="validationTooltip02">Search Area</label>
-                    <select class="custom-select" id="searcharea" required>
+                    <select id="searcharea" required>
                         <option selected value="Current Location">Current Location</option>
                         <option id="zipcode_option">Zip Code</option>
                       </select>
                 </div>
                 <div class="col-md-3" id="zipcode_section">
                     <label for="validationTooltip02">Zip Code</label>
-                    <input class="form-control" id="zipcode" placeholder="Enter the zip code">
+                    <input class="form-control" id="zipcode" placeholder="Enter the zip code" required>
                 </div>
               </div>
               <div class="form-row">
-                <div class="col-md-3 mb-3">
+                <div class="col-md-3">
                   <label for="validationTooltip01">Name</label>
                   <input type="text" class="form-control" id="place_name" value="All">
              </div>
               </div>
                 <div class="form-row">
-                    <div class="col-md-3 mb-3">
+                    <div class="col-md-3">
                       <label for="validationTooltip02">Type</label>
-                      <select class="custom-select" id="type" required>
+                      <select id="type" required>
                         <option selected value="All">All</option>
                         <option>American</option>
                         <option>Burgers</option>
@@ -69,242 +75,495 @@
                         <option>Sushi</option>
                       </select>
                       </div>
-                   <div class="col-md-3 mb-3">
+                   <div class="col-md-3">
                         <label for="validationTooltip01">Distance (in miles)</label>
                         <input type="text" class="form-control" id="distance" value="1">
                    </div>
                 </div>
                 <br>
 
-                  <a  class="btn btn-full" href="#" type="search" id="search-btn">Search</a>
-                  <button type="button" class="btn btn-primary" type="search" id="subscribe-btn" data-toggle="modal" data-target="#modal_4">Subscribe</button>
-
+                  <a class="btn btn-full" href="search.html" type="search" id="home_search-btn">Search</a>
                 <br>
                 <br>
-                <div id="loading">
-                    <div class="spinner-grow text-primary" role="status">
-                      <span class="sr-only">Loading...</span>
-                    </div>
-                    <div class="spinner-grow text-primary" role="status">
-                      <span class="sr-only">Loading...</span>
-                    </div>
-                    <div class="spinner-grow text-primary" role="status">
-                      <span class="sr-only">Loading...</span>
-                    </div>
-                  </div>
-                <div id="result_container">
-                </div>
-              </form>
-
-                                          <!--  reviews modal-->
-        <div id="modal_0" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                  <div class="status"></div>
-                  <div  id="modal_0_content">
-                    WIP
-                  </div>
             </div>
-          </div>
-        </div>
+        <button type="button" class="btn btn-primary" type="search" id="subscribe-btn" data-toggle="modal" data-target="#modal_4">Subscribe</button>
 
-                            <!--  direction modal-->
-        <div id="modal_1" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-              <div class="status">
-                <img id="car_img" src="assets/images/car.png">
-                <span id="duration_status"></span>
-                <span id="distance_status"></span>
-              </div>
-              <div id="map"></div>
+        <!-- subscribe modal-->
+        <div id="modal_4" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+           <div class="modal-dialog modal-lg">
+             <div class="modal-content">
+               <section class="section-form">
+                   <div class="row">
+                       <h2>Get an update on your community favorites!</h2>
+                   </div>
+                   <div class="row">
+                       <form method="post" action="#" class="contact-form">
+                           <div class="row">
+                           <div class="col span-1-of-3">
+                               <label for="name">Name</label>
+                           </div>
+                           <div class="col span-2-of-3">
+                           <input type="text" name="name" id="name" placeholder="Your name" required>
+                           </div>
+                           </div>
+                           <div class="row">
+                                   <div class="col span-1-of-3">
+                                       <label for="email">Email</label>
+                                   </div>
+                                   <div class="col span-2-of-3">
+                                   <input type="email" name="email" id="email" placeholder="Your email" required>
+                               </div>
+                           </div> 
+                           <div class="row">
+                                   <div class="col span-1-of-3">
+                                       <label for="find-us">What types of food would you like to eat?</label>
+                                   </div>
+                                   <div class="col span-2-of-3">
+                                       <input type="radio" class="rad" name="Item1" value="American" />American
+                                       <br />
+                                       <input type="radio" class="rad" name="Item2" value="Burgers" />Burgers
+                                       <br />
+                                       <input type="radio" class="rad" name="Item3" value="Chinese" />Chinese
+                                       <br />
+                                       <input type="radio" class="rad" name="Item4" value="Italian" />Italian
+                                       <br />
+                                       <input type="radio" class="rad" name="Item4" value="Japanese" />Japanese
+                                       <br />
+                                       <input type="radio" class="rad" name="Item4" value="Mexican" />Mexican
+                                       <br />
+                                       <input type="radio" class="rad" name="Item4" value="Pasta" />Pasta
+                                       <br />
+                                       <input type="radio" class="rad" name="Item4" value="Pizza" />Pizza
+                                       <br />
+                                       <input type="radio" class="rad" name="Item4" value="Sandwiches" />Sandwiches
+                                       <br />
+                                       <input type="radio" class="rad" name="Item4" value="Seafood" />Seafood
+                                       <br />
+                                       <input type="radio" class="rad" name="Item4" value="Steak" />Steak
+                                       <br />
+                                       <input type="radio" class="rad" name="Item4" value="Sushi" />Sushi
+                                       <br />
+                               </div>
+                           </div> 
+           
+                   <div class="row">
+                       <div class="col span-1-of-3">
+                           <label>&nbsp;</label>
+                      </div>
+                        <div class="col span-2-of-3">
+                       <button type="submit">Submit</button>
+                   </div>
+               </div>      
+                       </form>
+                   </div>
+                   
+               </section>
+             </div>
+           </div>
+         </div>
+
+        <section class="section-features">
+            <div class="row">
+             
+                <h2>Get food fast &mdash; not fast food </h2>
+                <p class="long-copy">
+                        Hello, we’re Omnifood, your new premium food delivery service. We know you’re always busy. No time for cooking. So let us take care of that, we’re really good at it, we promise!
+
+                </p>
             </div>
-          </div>
-        </div>
-       
-                            <!--  share modal -->
-        <div id="modal_2" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="status"></div>
-              <div  id="modal_2_content">
-              <div class="row" id="to_row">
-                <div class="col-md-6">
-                <label for="validationTooltip02">To:</label>
-                <select class="custom-select" id="email_recievers" required>
-                  <option selected value="Community">Community</option>
-                  <option>Custom Email Address</option>
-                  </select>
-                </div>
-                <div class="col-md-6" id="custom_email_div">
-                  <input id="custom_email" type="text" class="form-control" placeholder="Type the email address">
-                </div>
-              </div>
-                <br>
-                  <label for="validationTooltip02">Subject:</label>
-                  <input type="text" class="form-control" id="subject" value="I would like to share my great experience.">
-                  <br>
-                  <label for="validationTooltip02">Message:</label>
-                  <textarea id="message" class="form-control" rows="10"></textarea>
-                  <br>
-                  <button id="email_send_btn" class="btn btn-primary" data-toggle="modal" data-target="#modal_3" data-dismiss="modal">Send</button>
-                </div>                
-          </div>
-        </div>
-      </div>
+           
+            <div class="row">
+                <div class="col span-1-of-4 box">
+                        <i class="ion-ios-infinite-outline icon-big"></i>
+                    <h3> Up to 365 days/year</h3>
+                    <p>
+                    Never cook again! We really mean that. Our subscription plans include up to 365 days/year coverage. You can also choose to order more flexibly if that's your style.
+                    </p>
 
-      
-                <!--  sent modal -->
-                <div id="modal_3" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                      <div class="modal-content">
-                        <h4 id="sent">Sent</h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </header>
-              <section class="section-meals">
-                <ul class="meals-showcase">
-                    <li>
-                        <figure class="meal-photo">
-                            <img src="resources/img/1.jpg" alt="Korean bibimbap with egg and vegetables">
+
+                 </div>
+            
+                 
+                        <div class="col span-1-of-4 box">
+                                <i class="ion-ios-stopwatch-outline icon-big"></i>
+                               
+                            <h3> Ready in 20 minutes</h3>
+                            <p>
+                                    You're only twenty minutes away from your delicious and super healthy meals delivered right to your home. We work with the best chefs in each town to ensure that you're 100% happy.
+                            </p>
+                        </div>
+        
+        
+                   
+                 
+                   <div class="col span-1-of-4 box">
+                        <i class="ion-ios-nutrition-outline icon-big"></i>
+                     <h3>100% organic</h3>
+                    <p>
+                    All our vegetables are fresh, organic and local. Animals are raised without added hormones or antibiotics. Good for your health, the environment, and it also tastes better!
+                     </p>
+                   
                 
-                            </figure >
-                    </li>
+                
+                    </div>
+                    
+                    
+                                
+                    <div class="col span-1-of-4 box">
+                            <i class="ion-ios-cart-outline icon-big"></i>
+                     <h3>Order anything </h3>
+                    <p>
+                    We don't limit your creativity, which means you can order whatever you feel like. You can also choose from our menu containing over 100 delicious meals. It's up to you!
+                    </p>
+               
+                    
+                     </div>
+
+                    </div>
+        </section>
+        <section class="section-meals">
+            <ul class="meals-showcase">
+                <li>
+                    <figure class="meal-photo">
+                        <img src="resources/img/1.jpg" alt="Korean bibimbap with egg and vegetables">
+            
+                        </figure >
+                </li>
+                <li>
+                        <figure class="meal-photo">
+                            <img src="resources/img/2.jpg" alt="Simple italian pizza with cherry tomatoes ">
+    
+                        </figure>
+                    </li> 
                     <li>
                             <figure class="meal-photo">
-                                <img src="resources/img/2.jpg" alt="Simple italian pizza with cherry tomatoes ">
+                                <img src="resources/img/3.jpg" alt="Chicken breast steak with vegetables">
         
                             </figure>
-                        </li> 
+                        </li>
+            
                         <li>
                                 <figure class="meal-photo">
-                                    <img src="resources/img/3.jpg" alt="Chicken breast steak with vegetables">
+                                    <img src="resources/img/4.jpg" alt=" Autumn pumpkin soup ">
             
                                 </figure>
                             </li>
-                
                             <li>
                                     <figure class="meal-photo">
-                                        <img src="resources/img/4.jpg" alt=" Autumn pumpkin soup ">
+                                        <img src="resources/img/5.jpg" alt=" Paleo beef steak with vegetables ">
                 
                                     </figure>
                                 </li>
                                 <li>
                                         <figure class="meal-photo">
-                                            <img src="resources/img/5.jpg" alt=" Paleo beef steak with vegetables ">
+                                            <img src="resources/img/6.jpg" alt=" Healthy baguette with egg and vegetables ">
                     
                                         </figure>
                                     </li>
                                     <li>
                                             <figure class="meal-photo">
-                                                <img src="resources/img/6.jpg" alt=" Healthy baguette with egg and vegetables ">
+                                                <img src="resources/img/7.jpg" alt="Burger with cheddar and bacon">
                         
                                             </figure>
                                         </li>
                                         <li>
                                                 <figure class="meal-photo">
-                                                    <img src="resources/img/7.jpg" alt="Burger with cheddar and bacon">
+                                                    <img src="resources/img/8.jpg" alt="Granola with cherries and strawberries">
                             
                                                 </figure>
                                             </li>
-                                            <li>
-                                                    <figure class="meal-photo">
-                                                        <img src="resources/img/8.jpg" alt="Granola with cherries and strawberries">
-                                
-                                                    </figure>
-                                                </li>
-                  </ul>
-                 
-              </section>
+            </ul>
+           
+        </section>
+        <section class="section-cities">
+                <div class="row">
+                <h2>We're curruntly in these cities</h2>
+                </div>
+                <div class="row">
+                    
+                 <div class="col span-1-of-4 box">
+                        <img src="resources/img/san-francisco.jpg" alt="san francisco">
+                        <h3>SAN FRANCISCO</h3>
+                        <div class="city-feature">
+                        <i class="ion-ios-person icon-small"></i>
+                        3700+ happy eaters
+                        </div>
+                        <div class="city-feature">
+                     <i class="ion-ios-star icon-small"></i>
+                     160+ top chefs
+                         </div>
+                     <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                    <a href="#">@omnifood_sf</a>
+                     </div>
+                     </div>
+                <div class="col span-1-of-4 box">
+                        <img src="resources/img/berlin.jpg" alt="Berlin">
+                        <h3>BERLIN</h3>
+                        <div class="city-feature">
+                        <i class="ion-ios-person icon-small"></i>
+                        2300+ happy eaters
+                        </div>
+                        <div class="city-feature">
+                     <i class="ion-ios-star icon-small"></i>
+                     110+ top chefs
+                         </div>
+                     <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                    <a href="#">@omnifood_berlin</a>
+                     </div>
+                        
+                </div>
+                <div class="col span-1-of-4 box">
+                        <img src="resources/img/london.jpg" alt="London">
+                        <h3>LONDON</h3>
+                        <div class="city-feature">
+                        <i class="ion-ios-person icon-small"></i>
+                        1200+ happy eaters
+                        </div>
+                        <div class="city-feature">
+                     <i class="ion-ios-star icon-small"></i>
+                     50+ top chefs
+                         </div>
+                     <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                    <a href="#">@omnifood_london</a>
+                     </div>
+                        
+                </div>
+                <div class="col span-1-of-4 box">
+                        <img src="resources/img/lisbon-3.jpg" alt="Lisbon">
+                        <h3>LISBON</h3>
+                        <div class="city-feature">
+                        <i class="ion-ios-person icon-small"></i>
+                        1600+ happy eaters
+                        </div>
+                        <div class="city-feature">
+                     <i class="ion-ios-star icon-small"></i>
+                     60+ top chefs
+                         </div>
+                     <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                   <a href="#">@omnifood_lx</a>
+                     </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-testimonials">
+            <div class="row">
+                <h2>Our customers can't live without us</h2>
 
-                 <!-- subscribe modal-->
-        <div id="modal_4" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                <section class="section-form">
+
+            </div>
+            <div class="row">
+                <div class="col span-1-of-3">
+                    <blockquote>
+                            Omnifood is just awesome! I just launched a startup which leaves me with no time for cooking, so Omnifood is a life-saver. Now that I got used to it, I couldn't live without my daily meals!
+                            <cite><img src="resources/img/customer-1.jpg">Alberto Duncan</cite>
+                    </blockquote>
+                </div>
+                <div class="col span-1-of-3">
+                        <blockquote>
+                                Inexpensive, healthy and great-tasting meals, delivered right to my home. We have lots of food delivery here in Lisbon, but no one comes even close to Omifood. Me and my family are so in love!
+                                <cite><img src="resources/img/customer-2.jpg">Joana Silva</cite>
+                        </blockquote>
+                    </div>
+                    <div class="col span-1-of-3">
+                            <blockquote>
+                                    I was looking for a quick and easy food delivery service in San Franciso. I tried a lot of them and ended up with Omnifood. Best food delivery service in the Bay Area. Keep up the great work!
+                                    <cite><img src="resources/img/customer-3.jpg">Milton Chapman</cite>
+                            </blockquote>
+                        </div>
+            </div>
+        </section>
+        <section class="section-plans">
+            <div class="row">
+                <h2>Start eating healthy today</h2>
+
+            </div>
+            <div class="row">
+                <div class="col span-1-of-3">
+                <div class="plan-box">
+                    <div>
+                        <h3>Premium</h3>
+                        <p class="plan-price">399$ <span>/ month</span></p>
+                        <p class="plan-price-meal">That’s only 13.30$ per meal</p>
+                   </div>
+                   <div>
+                       <ul>
+                           <li><i class="ion-ios-checkmark-empty  icon-small"></i>1 meal every day </li>
+                           <li><i class="ion-ios-checkmark-empty  icon-small"></i>Order 24/7 </li>
+                           <li><i class="ion-ios-checkmark-empty  icon-small"></i>Access to newest creations </li>
+                           <li><i class="ion-ios-checkmark-empty  icon-small"></i>Free delivery </li>
+                       </ul>
+                   </div>
+                   <div>
+                       <a href="#" class="btn btn-full">Sign up now</a>
+                   </div>
+                </div>
+
+                </div>
+                <div class="col span-1-of-3">
+                        <div class="plan-box">
+                            <div>
+                                <h3>Pro</h3>
+                                <p class="plan-price">149$  <span>/ month</span></p>
+                                <p class="plan-price-meal">That’s only 14.90$ per meal</p>
+                           </div>
+                           <div>
+                               <ul>
+                                   <li><i class="ion-ios-checkmark-empty icon-small"></i>1 meal 10 days/month </li>
+                                   <li><i class="ion-ios-checkmark-empty  icon-small"></i>Order 24/7 </li>
+                                   <li><i class="ion-ios-checkmark-empty  icon-small"></i>Access to newest creations </li>
+                                   <li><i class="ion-ios-checkmark-empty  icon-small"></i>Free delivery </li>
+                               </ul>
+                           </div>
+                           <div>
+                               <a href="#" class="btn btn-ghost">Sign up now</a>
+                           </div>
+                        </div>
+        
+                        </div>
+                        <div class="col span-1-of-3">
+                                <div class="plan-box">
+                                    <div>
+                                        <h3>Starter</h3>
+                                        <p class="plan-price">19$  <span>/ meal</span></p>
+                                        <p class="plan-price-meal"> &nbsp;</p>
+                                   </div>
+                                   <div>
+                                       <ul>
+                                           <li><i class="ion-ios-checkmark-empty  icon-small"></i>1 meal </li>
+                                           <li><i class="ion-ios-checkmark-empty  icon-small"></i>Order from 8 am to 12 pm </li>
+                                           <li><i class="ion-ios-close-empty  icon-small"></i> </li>
+                                           <li><i class="ion-ios-checkmark-empty  icon-small"></i>Free delivery </li>
+                                       </ul>
+                                   </div>
+                                   <div>
+                                       <a href="#" class="btn btn-ghost">Sign up now</a>
+                                   </div>
+                                </div>
+                
+                                </div>
+            </div>
+
+        </section>
+        <section class="section-form">
+            <div class="row">
+                <h2>We're happy to hear from you</h2>
+
+            </div>
+            <div class="row">
+                <form method="post" action="#" class="contact-form">
                     <div class="row">
-                        <h2>Get an update on your community favorites!</h2>
+                    <div class="col span-1-of-3">
+                        <label for="name">Name</label>
+
+                    </div>
+                    <div class="col span-2-of-3">
+                    <input type="text" name="name" id="name" placeholder="Your name" required>
+                    </div>
                     </div>
                     <div class="row">
-                        <form method="post" action="#" class="contact-form">
-                            <div class="row">
                             <div class="col span-1-of-3">
-                                <label for="name">Name</label>
+                                <label for="email">Email</label>
+                            
+        
                             </div>
                             <div class="col span-2-of-3">
-                            <input type="text" name="name" id="name" placeholder="Your name" required>
+                            <input type="email" name="email" id="email" placeholder="Your email" required>
+                        </div>
+                    </div> 
+                    <div class="row">
+                            <div class="col span-1-of-3">
+                                <label for="find-us">How did you find us?</label>
+                            
+        
                             </div>
-                            </div>
-                            <div class="row">
-                                    <div class="col span-1-of-3">
-                                        <label for="email">Email</label>
-                                    </div>
-                                    <div class="col span-2-of-3">
-                                    <input type="email" name="email" id="email" placeholder="Your email" required>
-                                </div>
-                            </div> 
-                            <div class="row">
-                                    <div class="col span-1-of-3">
-                                        <label for="find-us">What types of food would you like to eat?</label>
-                                    </div>
-                                    <div class="col span-2-of-3">
-                                        <input type="radio" class="rad" name="Item1" value="American" />American
-                                        <br />
-                                        <input type="radio" class="rad" name="Item2" value="Burgers" />Burgers
-                                        <br />
-                                        <input type="radio" class="rad" name="Item3" value="Chinese" />Chinese
-                                        <br />
-                                        <input type="radio" class="rad" name="Item4" value="Italian" />Italian
-                                        <br />
-                                        <input type="radio" class="rad" name="Item4" value="Japanese" />Japanese
-                                        <br />
-                                        <input type="radio" class="rad" name="Item4" value="Mexican" />Mexican
-                                        <br />
-                                        <input type="radio" class="rad" name="Item4" value="Pasta" />Pasta
-                                        <br />
-                                        <input type="radio" class="rad" name="Item4" value="Pizza" />Pizza
-                                        <br />
-                                        <input type="radio" class="rad" name="Item4" value="Sandwiches" />Sandwiches
-                                        <br />
-                                        <input type="radio" class="rad" name="Item4" value="Seafood" />Seafood
-                                        <br />
-                                        <input type="radio" class="rad" name="Item4" value="Steak" />Steak
-                                        <br />
-                                        <input type="radio" class="rad" name="Item4" value="Sushi" />Sushi
-                                        <br />
-                                </div>
-                            </div> 
-            
+                            <div class="col span-2-of-3">
+                            <select name="find us" id="find us">
+                                <option value="friends">Friends</option>
+                                <option value="search">Search engine</option>
+                                <option value="ad">Advertisement</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div> 
                     <div class="row">
                         <div class="col span-1-of-3">
-                            <label>&nbsp;</label>
-                       </div>
-                         <div class="col span-2-of-3">
-                        <button type="submit">Submit</button>
+                            <label>Newsletter</label>
+                        
+    
+                        </div>
+                        <div class="col span-2-of-3">
+                        <input type="checkbox" name="news" id="news" checked>Yes, please
                     </div>
-                </div>      
-                        </form>
-                    </div>
+                </div>  
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label>Drop us a line</label>
                     
-                </section>
-              </div>
+
+                    </div>
+                    <div class="col span-2-of-3">
+                    <textarea name="message" placeholder="Your message"></textarea>
+                </div>
+            </div> 
+            <div class="row">
+                <div class="col span-1-of-3">
+                    <label>&nbsp;</label>
+                
+
+                </div>
+                <div class="col span-2-of-3">
+                <input type="submit" value="Send it!">
             </div>
-          </div>
-        </div>
+        </div>      
 
-        <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+
+                </form>
+            </div>
+            
+        </section>
+        <footer>
+            <div class="row">
+                <div class="col span-1-of-2">
+                    <ul class="footer-nav">
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">iOS App</a></li>
+                            <li><a href="#">Android App</a></li>
+                        </ul>
+                    </div>
+                    <div class="col span-1-of-2">
+                        <ul class="social-links">
+
+                        <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                        <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+                        <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+                        <li><a href="#"><i class="ion-social-instagram"></i></a></li>
+                       
+                        </ul>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <p>
+                    Copyright &copy; 2019 by Omnifood. All rights reserved.
+                </p>
+            </div>
+        </footer>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
-        <script src="assets/main.js"></script>
-        <script src="assets/functions.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmJyViZSJ3cStp8CIvoAIdZ_nTsJl5DBQ"></script>
-
-</body>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="assets/main.js"></script>
+<script src="assets/functions.js"></script>
+    </body>
 </html>
+
+
+
+
+ 

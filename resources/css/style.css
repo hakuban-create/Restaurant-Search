@@ -24,7 +24,7 @@ body {
 /* REUSABLE COMPONENTS */
 /* ........................................... */
 .row {
-    margin: 0 auto;
+    max-width: 1140px;
 }
 section {
     padding: 80px 0;
@@ -180,7 +180,7 @@ input[type=submit]:active {
 
 header {
     background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(img/hero.jpg);
-    height: 150vh;
+    height: 100vh;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -195,14 +195,14 @@ header {
     .logo {
         height: 100px;
         width: auto;
-        margin: 1% 5%
+        float: left;
+        margin-top: 20px;
         
     }
     .main-nav {
         float:right;
         list-style: none;
-        margin-top: 3%;
-        margin-left: 38%;
+        margin-top: 55px;
     }
     .main-nav li {
         display: inline-block;

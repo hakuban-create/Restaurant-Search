@@ -45,7 +45,7 @@ function getAjaxSetting(queryUrl){
         "method": "GET",
         "headers": {
           "X-RapidAPI-Host": "us-restaurant-menus.p.rapidapi.com",
-          "X-RapidAPI-Key": "89f48f102dmsha286536059ab923p14d588jsn048cd5bbda16"
+          "X-RapidAPI-Key": "27228f3928mshecf3768460bfdd6p1a3d7fjsn04c99c07c026"
         }
       }
       
@@ -111,13 +111,13 @@ function displayResult(htmlDivId,result){
     var el=$(domEl);
     el.empty();
     if(result.length==0){
-        el.css("color","red");
+        el.css("color","#e46509");
         el.text("No matching result");
     }else{
         for(i in result){
-            var row=$("<div>").attr("class","row container_div").attr("id",i),
+            var row=$("<div>").attr("class","row container_div shadow rounded").attr("id",i),
                 col1=$("<div>").attr("class","col-md-7 col1"),
-                col2=$("<div>").attr("class","row col-md-5"),
+                col2=$("<div>").attr("class","row col-md-5 tool_row"),
                 col21=$("<div>").attr("class","col-md-3"),
                 col22=$("<div>").attr("class","col-md-3"),
                 col23=$("<div>").attr("class","col-md-3");
@@ -130,25 +130,25 @@ function displayResult(htmlDivId,result){
                 div6= $("<div>").attr("class","result").text("Hours: "+result[i].hours);
 
             var img0=$("<img>").attr("src","assets/images/reviews.png").attr("class","reviewsImg shadow mb-5 bg-white rounded");
-            var btn0=$("<button>")
-                .attr("type","button")
-                .attr("class","reviews_btn btn btn-primary")
+            var btn0=$("<a>")
+                .attr("class","reviews_btn btn btn-full")
+                .attr("href","#")
                 .attr("data-toggle","modal")
                 .attr("data-target","#modal_0")
                 .text("Reviews");
 
             var img1=$("<img>").attr("src","assets/images/GoogleMap.jpeg").attr("class","googleImg shadow mb-5 bg-white rounded");
-            var btn1=$("<button>")
-                .attr("type","button")
-                .attr("class","direction_btn btn btn-primary")
+            var btn1=$("<a>")
+                .attr("class","direction_btn btn btn-full")
+                .attr("href","#")
                 .attr("data-toggle","modal")
                 .attr("data-target","#modal_1")
                 .text("Directions");
 
-            var img2=$("<img>").attr("src","assets/images/share.png").attr("class","shareImg shadow mb-5 bg-white rounded");
-            var btn2=$("<button>")
-                .attr("type","button")
-                .attr("class","share_btn btn btn-primary")
+            var img2=$("<img>").attr("src","assets/images/share1.png").attr("class","shareImg shadow mb-5 bg-white rounded");
+            var btn2=$("<a>")
+                .attr("class","share_btn btn btn-full")
+                .attr("href","#")
                 .attr("data-toggle","modal")
                 .attr("data-target","#modal_2")
                 .text("Share");
@@ -221,14 +221,14 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
             cuisine=selected.cuisines.toString(),
             phone=selected.restaurant_phone;
             nameToShare=selected.restaurant_name
-        $("#message").val("Hi,\nThe restaurant that I would like you share with you is:"+
+        $("#message").val("Hi,\nThe restaurant that I would like to share with you is:"+
                             "\n\n"+nameToShare+"\n"+"(Cuisines: "+cuisine+")\n"+address+"\n"+phone+"\n\n"+
                                 "* * * Optional: You may want to share more details about your experience as well as the dishes that you would like to recommend. * * *");
     }
 
 
     function sendEmail(recieverEmail, subject, message){
-        message=message.replace(nameToShare,"<span style=\"font-weight: bold\;font-size: 16px;\">"+nameToShare+"</span>");
+        message="<div style=\"font-size: 15px\">"+ message.replace(nameToShare,"<span style=\"font-weight: bold\;font-size: 16px;\">"+nameToShare+"</span>")+"</div>";
         Email.send({
             SecureToken : "c9c33f53-4b8f-4442-b581-b569cffe90a3 ",
             To : recieverEmail,
