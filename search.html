@@ -7,41 +7,29 @@
     <link rel="stylesheet" type="text/css" href="resources/css/style.css">
     <link rel="stylesheet" type="text/css" href="resources/css/queries.css">
     <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/search.css">
   </head>
 <body>
     <div id="search_body">
         <nav>
             <div class="row">
-                <a id="logo" href="index.html"><img src="resources/img/logo-white.png" alt="omnifood logo" class="logo rounded-circle"></a>
+                <a id="logo" href="index.html"><img id="logo_img" src="resources/img/logo-white.png" alt="omnifood logo" class="logo rounded-circle"></a>
             </div>
         </nav>
 
         <div class="container shadow">
             <div id="search_box">
-            <h4 id="search_box_label">Search restaurants</h4>
-            <div class="form-row">
-                <div class="col-md-3">
-                    <label for="validationTooltip02">Search Area</label>
-                    <select id="searcharea" required>
-                        <option selected value="Current Location">Current Location</option>
-                        <option id="zipcode_option">Zip Code</option>
-                      </select>
-                </div>
-                <div class="col-md-3" id="zipcode_section">
-                    <label for="validationTooltip02">Zip Code</label>
-                    <input class="form-control" id="zipcode" placeholder="Enter the zip code" required>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="col-md-3">
-                  <label for="validationTooltip01">Name</label>
-                  <input type="text" class="form-control" id="place_name" value="All">
-             </div>
-              </div>
-                <div class="form-row">
-                    <div class="col-md-3">
-                      <label for="validationTooltip02">Type</label>
+                <h4 id="search_box_label">Search restaurants</h4>
+                <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Search Area</label>
+                    <div class="col-sm-3">
+                        <select id="searcharea" required>
+                            <option selected value="Current Location">Current Location</option>
+                            <option id="zipcode_option">Zip Code</option>
+                        </select>
+                    </div>
+                    <label for="colFormLabel" class="col-sm-1 col-form-label">Type</label>
+                    <div class="col-sm-3">
                       <select id="type" required>
                         <option selected value="All">All</option>
                         <option>American</option>
@@ -58,16 +46,26 @@
                         <option>Sushi</option>
                       </select>
                       </div>
-                   <div class="col-md-3">
-                        <label for="validationTooltip01">Distance (in miles)</label>
-                        <input type="text" class="form-control" id="distance" value="1">
-                   </div>
                 </div>
-                <br>
-
-                  <a  class="btn btn-full" href="#" type="search" id="search-btn">Search</a>
-                <br>
-                <br>
+    
+                <div class="form-group row" id="zipcode_section">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Zip Code</label>
+                    <div class="col-sm-3">
+                        <input class="form-control" id="zipcode" placeholder="Enter the zip code" required>
+                    </div>
+                </div>
+                 <div class="form-group row">
+                        <label for="colFormLabel" class="col-sm-2 col-form-label">Distance (miles)</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="distance" value="1">
+                        </div>
+    
+                          <label for="colFormLabel" class="col-sm-1 col-form-label">Name</label>
+                    <div class="col-sm-3">
+                            <input type="text" class="form-control" id="place_name" value="All">
+                    </div>
+                 </div>
+                 <a class="btn btn-ghost" href="#" id="search-btn">Search</a>    
             </div>
                 <div id="loading">
                     <div class="spinner-grow text-light" role="status">
@@ -117,7 +115,7 @@
                 <div class="row" id="to_row">
                 <div class="col-md-6">
                  <label for="validationTooltip02">To:</label>
-                <select id="email_recievers">
+                <select id="email_recievers" class="form-control">
                   <option selected value="Community">Community</option>
                   <option>Custom Email Address</option>
                   </select>
@@ -132,7 +130,7 @@
                 </div>
                 <div class="row">
                   <label for="validationTooltip02">Message:</label>
-                  <textarea id="message"></textarea>
+                  <textarea id="message" class="form-control"></textarea>
                 </div>
                   <a href="#" id="email_send_btn" class="btn btn-full" data-toggle="modal" data-target="#modal_3" data-dismiss="modal">Send</a>
                 </div>                

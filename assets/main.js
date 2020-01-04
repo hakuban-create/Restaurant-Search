@@ -1,4 +1,4 @@
-
+$("#zipcode_section").hide();
 /* * * * * * * Variables * * * * * * */
 var type,name,distance,searchArea,zipCode;
 
@@ -34,6 +34,14 @@ $("#home_search-btn").on("click", function(){
     initSearchVars();
     saveSearchVars();
 
+});
+
+$("#searcharea").on("change",function(){
+    if($("#searcharea").val()=="Zip Code"){
+    $("#zipcode_section").show();
+    }else{
+        $("#zipcode_section").hide();
+    }
 });
 
 

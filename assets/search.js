@@ -2,7 +2,6 @@ initStoredSearch();
 /* * * * * * * elements * * * * * * */
 $("#zipcode_section").hide();
 $("#custom_email").hide();
-$("#loading").hide();
 
 /* * * * * * * Variables * * * * * * */
 var type,name,distance,searchArea,zipCode;
@@ -27,8 +26,6 @@ function initStoredSearch(){
     distance=obj.distance;
     searchArea=obj.searchArea;
     zipCode=obj.zipCode;
-    $("#result_container").hide();
-    $("#loading").show();
     setTimeout(function(){
         performSearch("result_container",searchArea,zipCode,distance,type,name);
     }, 300);
