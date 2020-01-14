@@ -195,9 +195,10 @@ header {
     .logo {
         height: 100px;
         width: auto;
-        float: left;
-        margin-top: 20px;
-        
+        float: right;
+        margin-top: 2px;
+        margin-left: 20px;
+      
     }
     .main-nav {
         float:right;
@@ -242,10 +243,12 @@ border-bottom: 2px solid #e67e22;
 /* ........................................... */
 .section-meals {
     padding: 0;
+    
 }
 .meals-showcase {
     list-style: none;
     width: 100%;
+   
 
 }
 .meals-showcase li {
@@ -258,11 +261,15 @@ border-bottom: 2px solid #e67e22;
     margin: 0;
     overflow: hidden;
     background: #000;
+    position:relative;
+    color:White;
+    text-align:center;
+    font-size:30px;
 }
 .meal-photo img {
     opacity: 0.7;
     width: 100%;
-    height: auto;
+    height: 200px;
     transform: scale(1.15);
     transition: transform 0.5s, opacity 0.5s;
 }
@@ -270,6 +277,15 @@ border-bottom: 2px solid #e67e22;
     opacity: 1;
     transform: scale(1.03);
 
+}
+
+.meal-header{
+    top:50%;
+    left:50%;
+    position:absolute;
+    
+
+    
 }
 
 /* ........................................... */
@@ -346,7 +362,9 @@ border-bottom: 2px solid #e67e22;
     background-size: cover;
     color: white;
     background-attachment: fixed;
+    padding-left: 80px;
 }
+
 blockquote {
     padding: 2%;
     font-style: italic;
@@ -438,7 +456,7 @@ cite img {
 /* ........................................... */
 
 .contact-form {
-    width: 60%;
+    width: 80%;
     margin:0 auto;
 }
 input[type=text],
@@ -469,6 +487,11 @@ footer {
 .footer-nav {
     list-style: none;
     float: left;
+    transform:translate(50%);
+}
+
+#copyright{
+    transform:translate(50%);
 }
 .social-links {
     list-style: none;

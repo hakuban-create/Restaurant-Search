@@ -4,51 +4,64 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">=
         <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
-        <link rel="stylesheet" type="text/css" href="vendors/css/grid.css">
         <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
         <link rel="stylesheet" type="text/css" href="resources/css/style.css">
         <link rel="stylesheet" type="text/css" href="resources/css/queries.css">
         <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="assets/search.css">
-        <title>Omnifood</title>
+        <title>Toxic Sushi</title>
 
     </head>
     <body>
         <header>
             <nav>
                 <div class="row">
-                    <img src="resources/img/logo-white.png" alt="omnifood logo" class="logo">
-                    <ul class="main-nav">
-                       <li><a href="#">Food delivery</a></li>
-                       <li><a href="#">How it works</a></li>
-                       <li><a href="#">Our cities</a></li>
-                       <li><a href="#" id="subscribe-btn" data-toggle="modal" data-target="#modal_4">Sign up</a></li>
-
-                    </ul>
+                    <img src="resources/img/ts logo.jpg" alt="toxic sushi logo" class="logo rounded-circle">
                     
                 </div>
             </nav>
+
+            <ul class="main-nav">
+                <li><a href="#" id="subscribe-btn" data-toggle="modal" data-target="#modal_4">Sign up</a></li>
+               <li><a href="#" id="subscribe-btn" data-toggle="modal" data-target="#modal_5">Sign in</a></li>
+               <li><a href="#" id="signout_button" >Sign out</a></li>
+
+               <h4 id="displayName"></h4>
+            </ul>
+            
+
             <div class="hero-text-box">
-                <h1>Goodbye junk food.<br> Hello super healthy meals.</h1>
-                <a class="btn btn-full" href="#">I'am hungry</a>
-                <a class="btn btn-ghost" href="#">Show me more</a>
+                <h1>Find the best <br> of what you're hungry for</h1>
+                <a class="btn btn-full" href="#home_search_box"> I'm hungry </a>
+                <a class="btn btn-ghost" href="#comment-header"> Show me more </a>
             </div>
 
     </header>
    
-        <div id="home_search_box">
-            <h4 id="search_box_label">Search restaurants</h4>
+    <div id="home_search_box">
+            <h2 id="search_box_label">Search restaurants</h2>
             <div class="form-group row">
-                <label for="colFormLabel" class="col-sm-2 col-form-label">Search Area</label>
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Search By</label>
                 <div class="col-sm-3">
-                    <select id="searcharea" required>
+                    <select class="form-control" id="searcharea" required>
                         <option selected value="Current Location">Current Location</option>
                         <option id="zipcode_option">Zip Code</option>
+                        
                     </select>
                 </div>
-                <label for="colFormLabel" class="col-sm-1 col-form-label">Type</label>
+                <label class="col-form-label col-sm-2">Zip Code</label>
                 <div class="col-sm-3">
-                  <select id="type" required>
+                    <input class="form-control" id="zipcode" placeholder="Enter the zip code" required>
+                </div>
+                </div>
+          <div class="form-group row" id="name_section">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">Distance (mile)</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="distance" value="3">
+                </div>
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Type</label>
+                <div class="col-sm-3">
+                  <select class="form-control" id="type" required>
                     <option selected value="All">All</option>
                     <option>American</option>
                     <option>Burgers</option>
@@ -63,391 +76,383 @@
                     <option>Steak</option>
                     <option>Sushi</option>
                   </select>
-                  </div>
-            </div>
-
-            <div class="form-group row" id="zipcode_section">
-                <label for="colFormLabel" class="col-sm-2 col-form-label">Zip Code</label>
-                <div class="col-sm-3">
-                    <input class="form-control" id="zipcode" placeholder="Enter the zip code" required>
                 </div>
-            </div>
+          </div>
+
              <div class="form-group row">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Distance (miles)</label>
-                    <div class="col-sm-3">
-                        <input type="text" class="form-control" id="distance" value="1">
-                    </div>
-
-                      <label for="colFormLabel" class="col-sm-1 col-form-label">Name</label>
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Min Rating</label>
                 <div class="col-sm-3">
-                        <input type="text" class="form-control" id="place_name" value="All">
-                </div>
+                  <select class="form-control" id="rating" required>
+                    <option selected value="3">3</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                  </div>
+          <label for="colFormLabel" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-3">
+                    <input type="text" class="form-control" id="place_name" value="All">
+            </div>
              </div>
-             <a class="btn btn-ghost" href="search.html" id="home_search-btn">Search</a>    
+             <a class="btn btn-full" href="search.html" id="home_search-btn">Search</a>    
         </div>
 
-        <!-- subscribe modal-->
+        <!-- sign up-->
         <div id="modal_4" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-           <div class="modal-dialog modal-lg">
-             <div class="modal-content">
-               <section class="section-form">
-                   <div class="row">
-                       <h2>Get an update on your community favorites!</h2>
-                   </div>
-                   <div class="row">
-                       <form method="post" action="#" class="contact-form">
-                           <div class="row">
-                           <div class="col span-1-of-3">
-                               <label for="name">Name</label>
-                           </div>
-                           <div class="col span-2-of-3">
-                           <input type="text" name="name" id="name" placeholder="Your name" required>
-                           </div>
-                           </div>
-                           <div class="row">
-                                   <div class="col span-1-of-3">
-                                       <label for="email">Email</label>
-                                   </div>
-                                   <div class="col span-2-of-3">
-                                   <input type="email" name="email" id="email" placeholder="Your email" required>
-                               </div>
-                           </div> 
-                           <div class="row">
-                                   <div class="col span-1-of-3">
-                                       <label for="find-us">What types of food would you like to eat?</label>
-                                   </div>
-                                   <div class="col span-2-of-3">
-                                       <input type="radio" class="rad" name="Item1" value="American" />American
-                                       <br />
-                                       <input type="radio" class="rad" name="Item2" value="Burgers" />Burgers
-                                       <br />
-                                       <input type="radio" class="rad" name="Item3" value="Chinese" />Chinese
-                                       <br />
-                                       <input type="radio" class="rad" name="Item4" value="Italian" />Italian
-                                       <br />
-                                       <input type="radio" class="rad" name="Item4" value="Japanese" />Japanese
-                                       <br />
-                                       <input type="radio" class="rad" name="Item4" value="Mexican" />Mexican
-                                       <br />
-                                       <input type="radio" class="rad" name="Item4" value="Pasta" />Pasta
-                                       <br />
-                                       <input type="radio" class="rad" name="Item4" value="Pizza" />Pizza
-                                       <br />
-                                       <input type="radio" class="rad" name="Item4" value="Sandwiches" />Sandwiches
-                                       <br />
-                                       <input type="radio" class="rad" name="Item4" value="Seafood" />Seafood
-                                       <br />
-                                       <input type="radio" class="rad" name="Item4" value="Steak" />Steak
-                                       <br />
-                                       <input type="radio" class="rad" name="Item4" value="Sushi" />Sushi
-                                       <br />
-                               </div>
-                           </div> 
-           
-                   <div class="row">
-                       <div class="col span-1-of-3">
-                           <label>&nbsp;</label>
-                      </div>
-                        <div class="col span-2-of-3">
-                       <button type="submit">Submit</button>
-                   </div>
-               </div>      
-                       </form>
-                   </div>
-                   
-               </section>
-             </div>
-           </div>
-         </div>
-
-        <section class="section-features">
-            <div class="row">
-             
-                <h2>Get food fast &mdash; not fast food </h2>
-                <p class="long-copy">
-                        Hello, we’re Omnifood, your new premium food delivery service. We know you’re always busy. No time for cooking. So let us take care of that, we’re really good at it, we promise!
-
-                </p>
-            </div>
-           
-            <div class="row">
-                <div class="col span-1-of-4 box">
-                        <i class="ion-ios-infinite-outline icon-big"></i>
-                    <h3> Up to 365 days/year</h3>
-                    <p>
-                    Never cook again! We really mean that. Our subscription plans include up to 365 days/year coverage. You can also choose to order more flexibly if that's your style.
-                    </p>
-
-
-                 </div>
-            
-                 
-                        <div class="col span-1-of-4 box">
-                                <i class="ion-ios-stopwatch-outline icon-big"></i>
-                               
-                            <h3> Ready in 20 minutes</h3>
-                            <p>
-                                    You're only twenty minutes away from your delicious and super healthy meals delivered right to your home. We work with the best chefs in each town to ensure that you're 100% happy.
-                            </p>
-                        </div>
-        
-        
-                   
-                 
-                   <div class="col span-1-of-4 box">
-                        <i class="ion-ios-nutrition-outline icon-big"></i>
-                     <h3>100% organic</h3>
-                    <p>
-                    All our vegetables are fresh, organic and local. Animals are raised without added hormones or antibiotics. Good for your health, the environment, and it also tastes better!
-                     </p>
-                   
-                
-                
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <section class="section-form">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                    <div class="row">
+                        <h2>Get an update on your community favorites!</h2>
                     </div>
-                    
-                    
-                                
-                    <div class="col span-1-of-4 box">
-                            <i class="ion-ios-cart-outline icon-big"></i>
-                     <h3>Order anything </h3>
-                    <p>
-                    We don't limit your creativity, which means you can order whatever you feel like. You can also choose from our menu containing over 100 delicious meals. It's up to you!
-                    </p>
-               
-                    
+                    <div class="row">
+                        <form method="post" action="#" class="contact-form">
+                            <div class="row">
+                            <div class="col col-md-2">
+                                <label for="name">Name</label>
+                            </div>
+                            <div class="col-md-6" >
+                            <input type="text" name="name" class="form-control" id="signup_name" placeholder="Enter your name" required>
+                            </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col col-md-2">
+                                        <label for="email">Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                    <input type="email" name="email" class="form-control" id="signup_email" placeholder="Enter your email" required>
+                                </div>
+                            </div> 
+ 
+                            <div class="row">
+                                <div class="col col-md-2">
+                                    <label for="email">Password</label>
+                                </div>
+                                <div class="col-md-6">
+                                <input type="text"  name="password" class="form-control" id="signup_password" placeholder="Enter your password" required>
+                            </div>
+                        </div> 
+ 
+                       
+                         <div class="form-group row">
+                            <label for="colFormLabel" class="col-md-2">City</label>
+                            <div class="col-md-6">
+                                <input type="text" id="signup_city" class="form-control" placeholder="Enter your city" required>
+                            </div>
+                         </div>
+                         <div class="form-group row">
+                              <label for="colFormLabel" class="col-md-2" >State</label>
+                        <div class="col-md-6">
+                            <select class="form-control" id="signup_state">
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                                <option value="AR">Arkansas</option>
+                                <option value="CA">California</option>
+                                <option value="CO">Colorado</option>
+                                <option value="CT">Connecticut</option>
+                                <option value="DE">Delaware</option>
+                                <option value="DC">District Of Columbia</option>
+                                <option value="FL">Florida</option>
+                                <option value="GA">Georgia</option>
+                                <option value="HI">Hawaii</option>
+                                <option value="ID">Idaho</option>
+                                <option value="IL">Illinois</option>
+                                <option value="IN">Indiana</option>
+                                <option value="IA">Iowa</option>
+                                <option value="KS">Kansas</option>
+                                <option value="KY">Kentucky</option>
+                                <option value="LA">Louisiana</option>
+                                <option value="ME">Maine</option>
+                                <option value="MD">Maryland</option>
+                                <option value="MA">Massachusetts</option>
+                                <option value="MI">Michigan</option>
+                                <option value="MN">Minnesota</option>
+                                <option value="MS">Mississippi</option>
+                                <option value="MO">Missouri</option>
+                                <option value="MT">Montana</option>
+                                <option value="NE">Nebraska</option>
+                                <option value="NV">Nevada</option>
+                                <option value="NH">New Hampshire</option>
+                                <option value="NJ">New Jersey</option>
+                                <option value="NM">New Mexico</option>
+                                <option value="NY">New York</option>
+                                <option value="NC">North Carolina</option>
+                                <option value="ND">North Dakota</option>
+                                <option value="OH">Ohio</option>
+                                <option value="OK">Oklahoma</option>
+                                <option value="OR">Oregon</option>
+                                <option value="PA">Pennsylvania</option>
+                                <option value="RI">Rhode Island</option>
+                                <option value="SC">South Carolina</option>
+                                <option value="SD">South Dakota</option>
+                                <option value="TN">Tennessee</option>
+                                <option value="TX">Texas</option>
+                                <option value="UT">Utah</option>
+                                <option value="VT">Vermont</option>
+                                <option value="VA">Virginia</option>
+                                <option value="WA">Washington</option>
+                                <option value="WV">West Virginia</option>
+                                <option value="WI">Wisconsin</option>
+                                <option value="WY">Wyoming</option>
+                            </select>				
+                        </div>
                      </div>
 
-                    </div>
-        </section>
-        <section class="section-meals">
-            <ul class="meals-showcase">
-                <li>
-                    <figure class="meal-photo">
-                        <img src="resources/img/1.jpg" alt="Korean bibimbap with egg and vegetables">
             
-                        </figure >
-                </li>
+ 
+                            <div class="row">
+                                    <div class="col span-1-of-3">
+                                        <label for="find-us">What types of food would you like to eat?</label>
+                                    </div>
+                                    <div class="col span-2-of-3">
+                                        <input type="checkbox" class="check" value="American"/>American
+                                        <br/>
+                                        <input type="checkbox" class="check" value="Burgers"/>Burgers
+                                        <br/>
+                                        <input type="checkbox" class="check" value="Chinese"/>Chinese
+                                        <br/>
+                                        <input type="checkbox" class="check" value="Italian"/>Italian
+                                        <br/>
+                                        <input type="checkbox" class="check" value="Japanese">Japanese
+                                        <br/>
+                                        <input type="checkbox" class="check" value="Mexican">Mexican
+                                        <br/>
+                                        <input type="checkbox" id="checkAll" value="Check All">Check All
+                                        <br/>
+                                       </div>
+                                       <div class="col span-3-of-3">
+                                        <input type="checkbox" class="check" value="Pasta">Pasta
+                                        <br/>
+                                        <input type="checkbox" class="check" value="Pizza">Pizza
+                                        <br/>
+                                        <input type="checkbox" class="check" value="Sandwiches"/>Sandwiches
+                                        <br/>
+                                        <input type="checkbox" class="check" value="Seafood"/>Seafood
+                                        <br/>
+                                        <input type="checkbox" class="check" value="Steak"/>Steak
+                                        <br/>
+                                        <input type="checkbox" class="check" value="Sushi"/>Sushi
+                                        <br/>
+
+                                        </div>
+                            </div> 
+            
+                    <div class="row">
+                            <label>&nbsp;</label>
+                        <input type="submit" id="subscribeSubmitBtn" data-dismiss="modal" href="#"></input>
+                    
+                </div>      
+                        </form>
+                    </div>
+                    
+                </section>
+              </div>
+            </div>
+          </div>
+
+
+ <!-- sign in modal-->
+ <div id="modal_5" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+                
+                <div class="row">
+                        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                          <div class="card card-signin my-5">
+                            <div class="card-body">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                              <h5 class="card-title text-center">Sign In</h5>
+                              <form class="form-signin">
+                                <div class="form-label-group">
+                                        <label for="inputEmail">Email address</label>
+                                  <input type="email" id="signin_email" class="form-control" placeholder="Email address" required autofocus>
+                                </div>
+                  
+                                <div class="form-label-group">
+                                        <label for="inputPassword">Password</label>
+                                  <input type="password" id="signin_password" class="form-control" placeholder="Password" required>
+                                 
+                                </div>
+                  
+                                <!-- <div class="custom-control custom-checkbox mb-3" >
+                                        <label class="custom-control-label" for="customCheck1">Remember password</label>
+                                  <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                  
+                                </div> -->
+                                <div id="errMsg"></div>
+                                <input type="submit" id="signin_submit"  href="#"></input>
+                                <hr class="my-4">
+                                <!-- <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
+                                <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button> -->
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+   
+      <section class="section-meals">
+        <ul class="meals-showcase">
+            <li>
+                <figure class="meal-photo" id="chinese">
+                   
+                    <img src="resources/img/chinese.jpg" alt="chinese_food">
+                    <div class="meal-header">Chinese</div> 
+                    </figure >
+            </li>
+            <li>
+                    <figure class="meal-photo" id="american">
+                        
+                        <img src="resources/img/american.jpg" alt="american_food">
+                        <div class="meal-header">American</div> 
+                    </figure>
+                </li> 
                 <li>
-                        <figure class="meal-photo">
-                            <img src="resources/img/2.jpg" alt="Simple italian pizza with cherry tomatoes ">
-    
+                        <figure class="meal-photo" id="italian">
+                            
+                            <img src="resources/img/italian.jpg" alt="italian_food">
+                            <div class="meal-header">Italian</div> 
                         </figure>
-                    </li> 
-                    <li>
-                            <figure class="meal-photo">
-                                <img src="resources/img/3.jpg" alt="Chicken breast steak with vegetables">
+                    </li>
         
+                    <li>
+                            <figure class="meal-photo" id="japanese">
+                                
+                                <img src="resources/img/japanese.jpg" alt="japanese_food">
+                                <div class="meal-header">Japanese</div> 
                             </figure>
                         </li>
-            
                         <li>
-                                <figure class="meal-photo">
-                                    <img src="resources/img/4.jpg" alt=" Autumn pumpkin soup ">
-            
+                                <figure class="meal-photo" id="texmex">
+                                    
+                                    <img src="resources/img/texmex.jpg" alt="tex_mex_food">
+                                    <div class="meal-header">Mexican</div> 
                                 </figure>
                             </li>
                             <li>
-                                    <figure class="meal-photo">
-                                        <img src="resources/img/5.jpg" alt=" Paleo beef steak with vegetables ">
-                
+                                    <figure class="meal-photo" id="pasta">
+                                       
+                                        <img src="resources/img/pasta.jpg" alt="pasta_food">
+                                        <div class="meal-header">Pasta</div> 
                                     </figure>
                                 </li>
                                 <li>
-                                        <figure class="meal-photo">
-                                            <img src="resources/img/6.jpg" alt=" Healthy baguette with egg and vegetables ">
-                    
+                                        <figure class="meal-photo" id="pizza">
+                                             
+                                            <img src="resources/img/pizza.jpg" alt="pizza_food">
+                                            <div class="meal-header">Pizza</div>
                                         </figure>
                                     </li>
                                     <li>
-                                            <figure class="meal-photo">
-                                                <img src="resources/img/7.jpg" alt="Burger with cheddar and bacon">
-                        
+                                            <figure class="meal-photo" id="burger">
+                                                
+                                                <img src="resources/img/burger.jpg" alt="burger_food">
+                                                <div class="meal-header">Burgers</div> 
                                             </figure>
                                         </li>
                                         <li>
-                                                <figure class="meal-photo">
-                                                    <img src="resources/img/8.jpg" alt="Granola with cherries and strawberries">
-                            
+                                                <figure class="meal-photo" id="sushi">
+                                                    
+                                                    <img src="resources/img/sushi.jpg" alt="sushi_food">
+                                                    <div class="meal-header">Sushi</div> 
                                                 </figure>
                                             </li>
-            </ul>
-           
-        </section>
-        <section class="section-cities">
-                <div class="row">
-                <h2>We're curruntly in these cities</h2>
-                </div>
-                <div class="row">
-                    
-                 <div class="col span-1-of-4 box">
-                        <img src="resources/img/san-francisco.jpg" alt="san francisco">
-                        <h3>SAN FRANCISCO</h3>
-                        <div class="city-feature">
-                        <i class="ion-ios-person icon-small"></i>
-                        3700+ happy eaters
-                        </div>
-                        <div class="city-feature">
-                     <i class="ion-ios-star icon-small"></i>
-                     160+ top chefs
-                         </div>
-                     <div class="city-feature">
-                    <i class="ion-social-twitter icon-small"></i>
-                    <a href="#">@omnifood_sf</a>
-                     </div>
-                     </div>
-                <div class="col span-1-of-4 box">
-                        <img src="resources/img/berlin.jpg" alt="Berlin">
-                        <h3>BERLIN</h3>
-                        <div class="city-feature">
-                        <i class="ion-ios-person icon-small"></i>
-                        2300+ happy eaters
-                        </div>
-                        <div class="city-feature">
-                     <i class="ion-ios-star icon-small"></i>
-                     110+ top chefs
-                         </div>
-                     <div class="city-feature">
-                    <i class="ion-social-twitter icon-small"></i>
-                    <a href="#">@omnifood_berlin</a>
-                     </div>
-                        
-                </div>
-                <div class="col span-1-of-4 box">
-                        <img src="resources/img/london.jpg" alt="London">
-                        <h3>LONDON</h3>
-                        <div class="city-feature">
-                        <i class="ion-ios-person icon-small"></i>
-                        1200+ happy eaters
-                        </div>
-                        <div class="city-feature">
-                     <i class="ion-ios-star icon-small"></i>
-                     50+ top chefs
-                         </div>
-                     <div class="city-feature">
-                    <i class="ion-social-twitter icon-small"></i>
-                    <a href="#">@omnifood_london</a>
-                     </div>
-                        
-                </div>
-                <div class="col span-1-of-4 box">
-                        <img src="resources/img/lisbon-3.jpg" alt="Lisbon">
-                        <h3>LISBON</h3>
-                        <div class="city-feature">
-                        <i class="ion-ios-person icon-small"></i>
-                        1600+ happy eaters
-                        </div>
-                        <div class="city-feature">
-                     <i class="ion-ios-star icon-small"></i>
-                     60+ top chefs
-                         </div>
-                     <div class="city-feature">
-                    <i class="ion-social-twitter icon-small"></i>
-                   <a href="#">@omnifood_lx</a>
-                     </div>
-                </div>
-            </div>
-        </section>
+                                            <li>
+                                                <figure class="meal-photo" id="sandwhich">
+                                                    
+                                                    <img src="resources/img/sandwhich.jpg" alt="sandwhich_food">
+                                                    <div class="meal-header">sandwhiches</div> 
+                                                </figure>
+                                            </li>
+                                            <li>
+                                                <figure class="meal-photo" id="steak">
+                                                     
+                                                    <img src="resources/img/steak.jpg" alt="steak_food">
+                                                    <div class="meal-header">Steak</div>
+                                                </figure>
+                                            </li>
+                                            <li>
+                                                <figure class="meal-photo" id="seafood">
+                                                    
+                                                    <img src="resources/img/seafood.jpg" alt="seafood_food">
+                                                    <div class="meal-header">Seafood</div> 
+                                                </figure>
+                                            </li>
+        </ul>
+       
+    </section>
         <section class="section-testimonials">
-            <div class="row">
-                <h2>Our customers can't live without us</h2>
+            <div class="row" id="testimonial-header">
+                <h2 class="center">Our customers can't live without us</h2>
 
 
             </div>
-            <div class="row">
+            <div class="row" id="row-testimonials">
                 <div class="col span-1-of-3">
                     <blockquote>
-                            Omnifood is just awesome! I just launched a startup which leaves me with no time for cooking, so Omnifood is a life-saver. Now that I got used to it, I couldn't live without my daily meals!
+                            Toxic Sushi is just awesome! I just launched a startup which leaves me with no time for cooking, so Toxic Sushi is a life-saver. Now that I got used to it, I couldn't live without my daily meals!
                             <cite><img src="resources/img/customer-1.jpg">Alberto Duncan</cite>
                     </blockquote>
                 </div>
                 <div class="col span-1-of-3">
                         <blockquote>
-                                Inexpensive, healthy and great-tasting meals, delivered right to my home. We have lots of food delivery here in Lisbon, but no one comes even close to Omifood. Me and my family are so in love!
+                                Inexpensive, healthy and great-tasting meals, delivered right to my home. We have lots of food delivery here in Lisbon, but no one comes even close to Toxic Sushi. Me and my family are so in love!
                                 <cite><img src="resources/img/customer-2.jpg">Joana Silva</cite>
                         </blockquote>
                     </div>
                     <div class="col span-1-of-3">
                             <blockquote>
-                                    I was looking for a quick and easy food delivery service in San Franciso. I tried a lot of them and ended up with Omnifood. Best food delivery service in the Bay Area. Keep up the great work!
+                                    I was looking for a quick and easy food delivery service in San Franciso. I tried a lot of them and ended up with Toxic Sushi. Best food delivery service in the Bay Area. Keep up the great work!
                                     <cite><img src="resources/img/customer-3.jpg">Milton Chapman</cite>
                             </blockquote>
                         </div>
+            </div> 
+            <a class="btn btn-full" href="#" id="add_comment_btn" data-toggle="modal" data-target="#comment_modal">Leave Comment</a>
+            
+            <!-- Add comment modal -->
+<div class="modal fade" id="comment_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-        </section>
-        <section class="section-plans">
-            <div class="row">
-                <h2>Start eating healthy today</h2>
-
-            </div>
-            <div class="row">
-                <div class="col span-1-of-3">
-                <div class="plan-box">
-                    <div>
-                        <h3>Premium</h3>
-                        <p class="plan-price">399$ <span>/ month</span></p>
-                        <p class="plan-price-meal">That’s only 13.30$ per meal</p>
-                   </div>
-                   <div>
-                       <ul>
-                           <li><i class="ion-ios-checkmark-empty  icon-small"></i>1 meal every day </li>
-                           <li><i class="ion-ios-checkmark-empty  icon-small"></i>Order 24/7 </li>
-                           <li><i class="ion-ios-checkmark-empty  icon-small"></i>Access to newest creations </li>
-                           <li><i class="ion-ios-checkmark-empty  icon-small"></i>Free delivery </li>
-                       </ul>
-                   </div>
-                   <div>
-                       <a href="#" class="btn btn-full">Sign up now</a>
-                   </div>
+            <div class="modal-body">
+                <div class="row" id="name_row">
+                    <label for="validationTooltip02">Your Name:</label>
+                    <input class="form-control" id="comment_name" type="text" placeholder="Type your name...">
                 </div>
-
+                <div class="row">
+                    <label for="validationTooltip02">Comment:</label>
+                    <textarea id="comment_message" class="form-control" rows="4" placeholder="Type your comment here..."></textarea>
                 </div>
-                <div class="col span-1-of-3">
-                        <div class="plan-box">
-                            <div>
-                                <h3>Pro</h3>
-                                <p class="plan-price">149$  <span>/ month</span></p>
-                                <p class="plan-price-meal">That’s only 14.90$ per meal</p>
-                           </div>
-                           <div>
-                               <ul>
-                                   <li><i class="ion-ios-checkmark-empty icon-small"></i>1 meal 10 days/month </li>
-                                   <li><i class="ion-ios-checkmark-empty  icon-small"></i>Order 24/7 </li>
-                                   <li><i class="ion-ios-checkmark-empty  icon-small"></i>Access to newest creations </li>
-                                   <li><i class="ion-ios-checkmark-empty  icon-small"></i>Free delivery </li>
-                               </ul>
-                           </div>
-                           <div>
-                               <a href="#" class="btn btn-ghost">Sign up now</a>
-                           </div>
-                        </div>
-        
-                        </div>
-                        <div class="col span-1-of-3">
-                                <div class="plan-box">
-                                    <div>
-                                        <h3>Starter</h3>
-                                        <p class="plan-price">19$  <span>/ meal</span></p>
-                                        <p class="plan-price-meal"> &nbsp;</p>
-                                   </div>
-                                   <div>
-                                       <ul>
-                                           <li><i class="ion-ios-checkmark-empty  icon-small"></i>1 meal </li>
-                                           <li><i class="ion-ios-checkmark-empty  icon-small"></i>Order from 8 am to 12 pm </li>
-                                           <li><i class="ion-ios-close-empty  icon-small"></i> </li>
-                                           <li><i class="ion-ios-checkmark-empty  icon-small"></i>Free delivery </li>
-                                       </ul>
-                                   </div>
-                                   <div>
-                                       <a href="#" class="btn btn-ghost">Sign up now</a>
-                                   </div>
-                                </div>
-                
-                                </div>
             </div>
-
+            <div class="modal-footer">
+              <a class="btn btn-full" href="#" id="save_comment_btn" data-dismiss="modal">Save comment</a>
+            </div>
+          </div>
+        </div>
+      </div>
         </section>
         <section class="section-form">
-            <div class="row">
+            <div class="row" id="comment-header">
                 <h2>We're happy to hear from you</h2>
 
             </div>
@@ -456,70 +461,52 @@
                     <div class="row">
                     <div class="col span-1-of-3">
                         <label for="name">Name</label>
-
                     </div>
                     <div class="col span-2-of-3">
-                    <input type="text" name="name" id="name" placeholder="Your name" required>
+                    <input type="text" name="name" id="contact_name" placeholder="Your name" required>
                     </div>
                     </div>
                     <div class="row">
                             <div class="col span-1-of-3">
                                 <label for="email">Email</label>
-                            
-        
                             </div>
                             <div class="col span-2-of-3">
-                            <input type="email" name="email" id="email" placeholder="Your email" required>
+                            <input type="email" name="email" id="contact_email" placeholder="Your email" required>
                         </div>
                     </div> 
                     <div class="row">
                             <div class="col span-1-of-3">
-                                <label for="find-us">How did you find us?</label>
-                            
-        
+                                <label for="find-us">Reason to contact</label>
                             </div>
                             <div class="col span-2-of-3">
-                            <select name="find us" id="find us">
-                                <option value="friends">Friends</option>
-                                <option value="search">Search engine</option>
-                                <option value="ad">Advertisement</option>
+                            <select name="find us" id="contact_reason">
+                                <option selected value="choose one">Choose one</option>
+                                <option value="signup">Signup</option>
+                                <option value="restaurants">Restaurants</option>
+                                <option value="suggestion">Suggestion</option>
+                                <option value="business">Business</option>
                                 <option value="other">Other</option>
                             </select>
                         </div>
-                    </div> 
-                    <div class="row">
-                        <div class="col span-1-of-3">
-                            <label>Newsletter</label>
-                        
-    
-                        </div>
-                        <div class="col span-2-of-3">
-                        <input type="checkbox" name="news" id="news" checked>Yes, please
-                    </div>
-                </div>  
+                    </div>  
                 <div class="row">
                     <div class="col span-1-of-3">
-                        <label>Drop us a line</label>
-                    
-
+                        <label>Message</label>
                     </div>
                     <div class="col span-2-of-3">
-                    <textarea name="message" placeholder="Your message"></textarea>
+                    <textarea id="contact_message" name="message" placeholder="Your message"></textarea>
                 </div>
             </div> 
             <div class="row">
                 <div class="col span-1-of-3">
                     <label>&nbsp;</label>
-                
-
                 </div>
                 <div class="col span-2-of-3">
-                <input type="submit" value="Send it!">
+                    <a class="btn btn-full" id="contact_send_btn" href="#">Send</a>
+                    <div id="contact_status"></div>
+                    <div id="contact_status_error"></div>
             </div>
         </div>      
-
-
-
                 </form>
             </div>
             
@@ -547,17 +534,18 @@
                     
                 </div>
             </div>
-            <div class="row">
+            <div class="row" id="copyright">
                 <p>
-                    Copyright &copy; 2019 by Omnifood. All rights reserved.
+                    Copyright &copy; 2019 by Toxic Sushi. All rights reserved.
                 </p>
             </div>
         </footer>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="assets/main.js"></script>
 <script src="assets/functions.js"></script>
+<script src="assets/main.js"></script>
     </body>
 </html>
 

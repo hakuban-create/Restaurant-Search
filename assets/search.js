@@ -1,10 +1,10 @@
 initStoredSearch();
 /* * * * * * * elements * * * * * * */
-$("#zipcode_section").hide();
-$("#custom_email").hide();
 
+$("#custom_email").hide();
+$( "#zipcode" ).prop( "disabled", true ).css("background-color","#6b6868");
 /* * * * * * * Variables * * * * * * */
-var type,name,distance,searchArea,zipCode;
+var type,name,distance,searchArea,zipCode,rating;
 
 
 
@@ -16,7 +16,8 @@ function initSearchVars(){
     zipCode=$("#zipcode").val();
     type=$("#type").val();
     name=$("#place_name").val();
-
+    rating=$("#rating").val();
+    console.log("rating: "+rating);
 }
 
 function initStoredSearch(){
@@ -26,10 +27,12 @@ function initStoredSearch(){
     distance=obj.distance;
     searchArea=obj.searchArea;
     zipCode=obj.zipCode;
+    rating=obj.rating;
     setTimeout(function(){
-        performSearch("result_container",searchArea,zipCode,distance,type,name);
+        performSearch("result_container",searchArea,zipCode,distance,type,name,rating);
     }, 300);
 }
+
 
 /* * * * * * * Listeners * * * * * * */
 
@@ -39,19 +42,26 @@ $("#search-btn").on("click",function(){
     event.preventDefault();
     setTimeout(function(){
         initSearchVars();
-        performSearch("result_container",searchArea,zipCode,distance,type,name);
+        performSearch("result_container",searchArea,zipCode,distance,type,name,rating);
     }, 300);
 
 });
 
 $("#searcharea").on("change",function(){
-    if($("#searcharea").val()=="Zip Code"){
-    $("#zipcode_section").show();
+    var selected=$("#searcharea").val();
+    if(selected=="Zip Code"){
+       $( "#zipcode" ).prop( "disabled", false ).css("background-color","white");
     }else{
-        $("#zipcode_section").hide();
+        $( "#zipcode" ).prop( "disabled", true ).css("background-color","#6b6868");
     }
 });
 
+$("#result_container").on("click",".reviews_btn",function(){
+    event.preventDefault();
+    var indexOfRestaurant=$(this).parent().parent().parent().attr("id");
+    console.log("clicked: "+indexOfRestaurant);
+    displayReview(indexOfRestaurant);
+});
 
 $("#result_container").on("click",".direction_btn",function(){
     event.preventDefault();
@@ -82,18 +92,24 @@ $("#email_recievers").on("change",function(){
 $("#email_send_btn").on("click",function(){
    var recieverType=$("#email_recievers").val();
    var recieverEmail="";
+   var subject=$("#subject").val(),
+   message=$("#message").val();
+   message= message.split("\n").join("</br>");
     if(recieverType=="Custom Email Address"){
         recieverEmail=$("#custom_email").val();
+        prepAndSendEmail(recieverEmail,subject,message);
     }else{
-        //WIP community email list as recievers
+        for(var i=0; i<localStorage.length; i++){
+            var key=localStorage.key(i);
+            if(key.startsWith("member")){
+             var email=JSON.parse(localStorage.getItem(key)).email;
+               prepAndSendEmail(email,subject,message);
+            //WIP community email list as recievers
+            }
+
+        }
+
     }
-    var subject=$("#subject").val(),
-        message=$("#message").val();
-        message= message.split("\n").join("</br>");
-
-    sendEmail(recieverEmail,subject,message);
-
-
 })
 
 
