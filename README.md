@@ -1,3 +1,3 @@
 # Project
 
-https://dashboard.heroku.com/apps/toxic-sushi-26692
+https://toxic-sushi-26692.herokuapp.com/
