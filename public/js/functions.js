@@ -7,10 +7,19 @@ var userLat="undefined";
 var result="undefined";
 var selected="undefined";
 var favList=[];
+var API_KEY = "undefined";
+
 
 //localStorage.clear();
 
 /* * * * * * * Functions * * * * * * */
+
+
+$.ajax("/get_key", {
+    type: "GET",
+}).then(function(result) {
+    API_KEY=result;
+})
 
 function performSearch(htmlDivId,searchArea,zipCode,distance,type,name,rating){
     var queryUrl;
@@ -63,7 +72,7 @@ function getAjaxSetting(queryUrl){
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-            "x-rapidapi-key": process.env.TRIPADVISOR_KEY
+            "x-rapidapi-key": API_KEY
         }
     }
     return settings;
